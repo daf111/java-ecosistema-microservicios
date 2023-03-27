@@ -36,7 +36,7 @@ public class EjemploGlobalFilter implements GlobalFilter, Ordered{
 
 	@Override
 	public int getOrder() {
-		return 1;
+		return 1; //Si el orden es negativo, el response es ReadOnly
 	}
 
 }
