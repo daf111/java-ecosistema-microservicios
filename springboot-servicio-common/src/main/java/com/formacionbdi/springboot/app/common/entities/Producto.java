@@ -1,4 +1,4 @@
-package com.formacionbdi.springboot.app.productos.models.entity;
+package com.formacionbdi.springboot.app.common.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,22 +14,24 @@ import jakarta.persistence.TemporalType;
 import jakarta.persistence.Transient;
 
 @Entity
-@Table(name="productos")
-public class Producto implements Serializable {
-	
+@Table(name = "productos")
+public class Producto implements Serializable{
+
 	private static final long serialVersionUID = 1285454306356845809L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nombre;
 	private Double precio;
-	@Transient
-	private Integer puertoUtilizado;
 	
 	@Column(name = "created_at")
 	@Temporal(TemporalType.DATE)
 	private Date createdAt;
+	
+	@Transient
+	private Integer puertoUtilizado;
 	
 	public Long getId() {
 		return id;
@@ -56,11 +58,11 @@ public class Producto implements Serializable {
 		this.createdAt = createAt;
 	}
 	
-
 	public Integer getPuertoUtilizado() {
-		return puertoUtilizado;
+		return this.puertoUtilizado;
 	}
-	public void setPuertoUtilizado(Integer puertoUtilizado) {
-		this.puertoUtilizado = puertoUtilizado;
+	public void setPuertoUtilizado(Integer port) {
+		this.puertoUtilizado = port;
 	}
+
 }
